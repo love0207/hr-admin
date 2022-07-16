@@ -1,5 +1,7 @@
 <template>
-  <div>测试一下啦啦啦啦啦啦啦啊啦啦啦啦啦啦</div>
+  <div class="dashboard-container">
+    <div class="dashboard-text">工资</div>
+  </div>
 </template>
 
 <script>
@@ -16,5 +18,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 </style>

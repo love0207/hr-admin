@@ -5,7 +5,7 @@ import { getTime } from '@/utils/auth'
 import router from '@/router'
 const request = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 10000
+  timeout: 100000000
 })
 // 添加请求拦截器
 request.interceptors.request.use(function (config) {
@@ -32,7 +32,7 @@ request.interceptors.response.use(function (response) {
   if (success) {
     return data
   } else {
-    Message.error(message)
+    Message.error('message')
     return Promise.reject(new Error(message))
   }
 }, function (error) {
