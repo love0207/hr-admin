@@ -1,11 +1,14 @@
 <template>
   <div class="dashboard-container">
     <div class="app-container">
-      <el-card>
+      <el-card v-loading="isLoading" style="min-height: 700px">
         <el-tabs>
           <el-tab-pane label="用户管理">
             <!-- 用了一个行列布局 -->
-            <TreeItem :node="titleObj"></TreeItem>
+            <TreeItem
+              :node="titleObj"
+              @delDepartment="getDepartmentsList"
+            ></TreeItem>
             <el-tree :data="data" default-expand-all>
               <template v-slot="scope">
                 <!-- 使用scoped slot 会传入两个参数node和data，分别表示当前节点的Node对象和当前节点的数据 -->
@@ -19,6 +22,7 @@
         </el-tabs>
       </el-card>
     </div>
+    <el-backtop></el-backtop>
   </div>
 </template>
 
@@ -33,7 +37,8 @@ export default {
   data () {
     return {
       data: [],
-      titleObj: {}
+      titleObj: {},
+      isLoading: true
     }
   },
   computed: {},
@@ -56,6 +61,7 @@ export default {
       }
       this.data = tranferListToTree(res.depts, '')
       this.titleObj = res.depts[0]
+      this.isLoading = false
     }
   }
 }
