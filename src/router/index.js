@@ -141,6 +141,16 @@ const asyncRoutes = [
       component: () => import('@/views/social/index'),
       meta: { title: '社保', icon: 'table' }
     }]
+  },
+  {
+    path: '/import',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: '',
+      name: 'Import',
+      component: () => import('@/import/index')
+    }]
   }
 ]
 const createRouter = () => new Router({

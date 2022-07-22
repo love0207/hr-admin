@@ -21,3 +21,4 @@ export const assignPermission = (id, permIds) => {
     data: { id, permIds }
   })
 }
+
